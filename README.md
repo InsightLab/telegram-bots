@@ -1,4 +1,4 @@
-# List of Bots
+# Insight Data Science Bots
 
 List of implemented bots:
 
