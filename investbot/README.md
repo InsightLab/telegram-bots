@@ -1,6 +1,6 @@
 # InvestBot
 
-The idea of this bot is to assist in the process of monitoring financial investments :computer:
+The idea of this bot is to assist in the process of monitoring financial investments :moneybag:
 
 ## Dependencies
 
