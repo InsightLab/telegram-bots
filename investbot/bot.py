@@ -48,9 +48,6 @@ def send(msg, token, group_id):
     	print("Erro ao enviar mensagem: %s" % e)
 
 
-# send(frases['Jeff Fischer'], "450399432:AAEiC7hCsa9FcJgIgR8DH7Nl5fgFa0j4rA0", -212351490)
-
-
 def crawler_info_trade(item):
 	"""
 	Crawler da página do InfoTrade
@@ -98,15 +95,19 @@ def format_msg(item):
 
 def main():
 	info = get_info_trade()
-	itens = crawler_info_trade(info)
-	try:
-		bot = telegram.Bot(token=my_token)
-		for item in itens:
-			msg = format_msg(item)
-			bot.sendMessage(chat_id=default_chat_id, text=msg, parse_mode=telegram.ParseMode.HTML)
-			bot.sendPhoto(chat_id=default_chat_id, photo=item['grafico'])   
-	except Exception as e:
-		print("Erro ao enviar mensagem: %s" % e)
+
+	if info is None:
+		send("InfoTrade não publicado ainda!", my_token, default_chat_id)
+	else:
+		itens = crawler_info_trade(info)
+		try:
+			bot = telegram.Bot(token=my_token)
+			for item in itens:
+				msg = format_msg(item)
+				bot.sendMessage(chat_id=default_chat_id, text=msg, parse_mode=telegram.ParseMode.HTML)
+				bot.sendPhoto(chat_id=default_chat_id, photo=item['grafico'])   
+		except Exception as e:
+			print("Erro ao enviar mensagem: %s" % e)
 
 
 if __name__ == '__main__':
