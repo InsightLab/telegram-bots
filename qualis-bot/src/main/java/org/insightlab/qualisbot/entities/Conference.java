@@ -1,4 +1,4 @@
-package org.insightlab.qualis_bot.entities;
+package org.insightlab.qualisbot.entities;
 
 import info.debatty.java.stringsimilarity.JaroWinkler;
 

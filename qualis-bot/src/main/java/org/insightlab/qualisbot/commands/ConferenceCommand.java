@@ -1,4 +1,4 @@
-package org.insightlab.qualis_bot.commands;
+package org.insightlab.qualisbot.commands;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.insightlab.qualis_bot.entities.Conference;
+import org.insightlab.qualisbot.entities.Conference;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.telegram.telegrambots.api.methods.ParseMode;
@@ -24,9 +24,10 @@ public class ConferenceCommand implements Command {
 
 	public ConferenceCommand() throws IOException {
 
-		String conferenceFilePath = ConferenceCommand.class.getClassLoader().getResource("conferences.json").getPath();
+		//String conferenceFilePath = ConferenceCommand.class.getResource("/conferences.json").getPath();
 
-		InputStream is = new FileInputStream(conferenceFilePath);
+		//InputStream is = new FileInputStream(conferenceFilePath);
+		InputStream is = ConferenceCommand.class.getResourceAsStream("/conferences.json");
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
 
