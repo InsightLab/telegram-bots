@@ -1,3 +1,4 @@
+from os import environ
 import telegram
 import feedparser
 from datetime import datetime, date
@@ -5,10 +6,10 @@ from bs4 import BeautifulSoup as bs
 import urllib.request as req
 
 # token do seu bot gerado pelo @BotFather no telegram
-my_token = ''
+my_token = environ.get("INVESTBOT_TOKEN")
 
 # grupo que receberá mensagens do bot
-default_chat_id = ''
+default_chat_id = environ.get("INVESTBOT_GROUP")
 
 rss = "http://www.infomoney.com.br/mercados/acoes-e-indices/rss"
 calls = ['Ibovespa', 'Vale (VALE3)']

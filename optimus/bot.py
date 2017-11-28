@@ -1,3 +1,4 @@
+from os import environ
 import sys
 import telegram
 import socket
@@ -7,7 +8,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from collections import Counter
 
 #Token do @BotFather
-token = ""
+token = environ.get("BOT_OPTIMUS_TOKEN")
 machine_name = "Optimus Server"
 
 def get_username(message):
@@ -15,9 +16,10 @@ def get_username(message):
 
 
 def get_ip():
-	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-	s.connect(("8.8.8.8", 80))
-	return s.getsockname()[0]
+	# s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	# s.connect(("8.8.8.8", 80))
+	# return s.getsockname()[0]
+	return ""
 
 
 def start(bot, update):
@@ -30,7 +32,7 @@ def ping(bot, update):
 
 def ip(bot, update):
 	import socket
-	update.message.reply_text("My local IP: {}".format(get_ip()))
+	update.message.reply_text("My local IP is {} (SSH on port 2222)".format(get_ip()))
 
 
 def memory(bot, update):
