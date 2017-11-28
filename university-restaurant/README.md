@@ -1,4 +1,4 @@
-# [BotRU](http://t.me/ru_ufc_fortaleza)
+# BotRU [![Telegram](https://img.shields.io/badge/Telegram-@ru_ufc_fortaleza-blue.svg)](http://t.me/ru_ufc_fortaleza)
 
 Informe-se pelo _telegram_ sobre o cardápio do Restaurante Universitário da [Universidade Federal do Ceará](http://www.ufc.br/) - Campus do Pici 
 
