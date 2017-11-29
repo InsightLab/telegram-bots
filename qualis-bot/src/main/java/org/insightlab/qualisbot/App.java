@@ -1,8 +1,8 @@
-package org.insightlab.qualis_bot;
+package org.insightlab.qualisbot;
 
 import java.io.IOException;
 
-import org.insightlab.qualis_bot.entities.QualisBot;
+import org.insightlab.qualisbot.entities.QualisBot;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
@@ -13,7 +13,7 @@ public class App {
 		TelegramBotsApi bot = new TelegramBotsApi();
 
 		try {
-			bot.registerBot(new QualisBot());
+			bot.registerBot(new QualisBot(args[0]));
 		} catch (TelegramApiRequestException e) {
 			e.printStackTrace();
 		}

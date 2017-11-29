@@ -1,9 +1,9 @@
-package org.insightlab.qualis_bot.commands;
+package org.insightlab.qualisbot.commands;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.insightlab.qualis_bot.entities.Conference;
+import org.insightlab.qualisbot.entities.Conference;
 import org.telegram.telegrambots.api.methods.ParseMode;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;

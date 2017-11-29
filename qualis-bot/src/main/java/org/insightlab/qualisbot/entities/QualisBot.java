@@ -1,13 +1,13 @@
-package org.insightlab.qualis_bot.entities;
+package org.insightlab.qualisbot.entities;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.insightlab.qualis_bot.commands.Command;
-import org.insightlab.qualis_bot.commands.ConferenceCommand;
-import org.insightlab.qualis_bot.commands.JournalCommand;
-import org.insightlab.qualis_bot.commands.StartCommand;
+import org.insightlab.qualisbot.commands.Command;
+import org.insightlab.qualisbot.commands.ConferenceCommand;
+import org.insightlab.qualisbot.commands.JournalCommand;
+import org.insightlab.qualisbot.commands.StartCommand;
 import org.telegram.telegrambots.api.methods.ParseMode;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
@@ -18,9 +18,13 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class QualisBot extends TelegramLongPollingBot{
 
 	private Map<String, Command> commandHash = new HashMap<String, Command>();
+	private String token;
 	
-	public QualisBot() throws IOException {
+	public QualisBot(String token) throws IOException {
 		super();
+		
+		this.token = token;
+		
 		commandHash.put("/conferencia", new ConferenceCommand());
 		commandHash.put("/periodico", new JournalCommand());
 		commandHash.put("/start", new StartCommand());
@@ -63,8 +67,7 @@ public class QualisBot extends TelegramLongPollingBot{
 
 	@Override
 	public String getBotToken() {
-		String botToken = System.getenv("QUALIS-BOT-TOKEN");
-		return botToken;
+		return token;
 	}
 
 }

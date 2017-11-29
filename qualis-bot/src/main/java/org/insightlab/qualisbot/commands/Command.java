@@ -1,4 +1,4 @@
-package org.insightlab.qualis_bot.commands;
+package org.insightlab.qualisbot.commands;
 
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
