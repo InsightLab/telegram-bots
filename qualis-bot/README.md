@@ -1,4 +1,4 @@
-# QualisBot [![Telegram](https://img.shields.io/badge/Telegram-@capes_qualis_bot-blue.svg)](http://t.me/capes_qualis_bot)
+# QualisBot [![Telegram](https://img.shields.io/badge/Telegram-@capes_qualis_bot-blue.svg)](http://t.me/capes_qualis_bot) [![TelegramStore](https://img.shields.io/badge/TelegramStore-@capes_qualis_bot-blue.svg)](https://storebot.me/bot/capes_qualis_bot)
 
 The idea of this bot is to help access to the [CAPES Qualis](http://www.capes.gov.br/avaliacao/instrumentos-de-apoio/classificacao-da-producao-intelectual) index of scientific journals and conferences (Quadrennium 2013-2016) :book:
 
