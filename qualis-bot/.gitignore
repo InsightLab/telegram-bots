@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/java,macos,maven,eclipse
 
 ### Eclipse ###
-
+log.csv
 .metadata
 bin/
 tmp/

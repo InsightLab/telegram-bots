@@ -3,11 +3,14 @@ package org.insightlab.qualisbot.entities;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.FileHandler;
 
 import org.insightlab.qualisbot.commands.Command;
 import org.insightlab.qualisbot.commands.ConferenceCommand;
 import org.insightlab.qualisbot.commands.JournalCommand;
 import org.insightlab.qualisbot.commands.StartCommand;
+import org.insightlab.qualisbot.helpers.FileLog;
+import org.insightlab.qualisbot.helpers.LogHelper;
 import org.telegram.telegrambots.api.methods.ParseMode;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
@@ -19,6 +22,7 @@ public class QualisBot extends TelegramLongPollingBot{
 
 	private Map<String, Command> commandHash = new HashMap<String, Command>();
 	private String token;
+	private LogHelper logger;
 	
 	public QualisBot(String token) throws IOException {
 		super();
@@ -29,6 +33,10 @@ public class QualisBot extends TelegramLongPollingBot{
 		commandHash.put("/periodico", new JournalCommand());
 		commandHash.put("/start", new StartCommand());
 		commandHash.put("/ajuda", new StartCommand());
+		
+		logger = new FileLog();
+		
+		System.out.println("Bot running...");
 		
 	}
 	
@@ -45,6 +53,7 @@ public class QualisBot extends TelegramLongPollingBot{
 
 			if(command[0].startsWith("/") && commandHash.containsKey(command[0])) {
 				commandHash.get(command[0]).run(update, this);
+				logger.write(update);
 			} 
 			
 			else {
