@@ -14,7 +14,7 @@ public abstract class SimpleCommand implements Command {
 
 	public boolean match(Update update) {
 		try{
-			return update.hasMessage() && update.getMessage().getText().equals(this.command);
+			return update.hasMessage() && update.getMessage().getText().split(" ")[0].equals(this.command);
 		}
 		catch(NullPointerException e){
 			return false;
