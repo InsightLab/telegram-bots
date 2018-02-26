@@ -9,9 +9,9 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class SimpleBot extends Bot{
 	
-	private String username;
-	private String token;
-	private List<Command> commands;
+	protected String username;
+	protected String token;
+	protected List<Command> commands;
 	
 	public SimpleBot(String token){
 		this(token, "");
