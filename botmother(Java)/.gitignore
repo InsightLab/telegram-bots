@@ -1,6 +1,8 @@
 
 # Created by https://www.gitignore.io/api/java,macos,maven,eclipse
 
+.idea/
+
 ### Eclipse ###
 log.csv
 .metadata
