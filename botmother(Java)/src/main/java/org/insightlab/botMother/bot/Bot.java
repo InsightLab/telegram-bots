@@ -26,6 +26,7 @@
 package org.insightlab.botMother.bot;
 
 import org.insightlab.botMother.command.Command;
+import org.insightlab.botMother.service.BotService;
 import org.telegram.telegrambots.api.methods.ParseMode;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
@@ -40,6 +41,14 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  */
 
 public abstract class Bot extends TelegramLongPollingBot {
+    /**
+     * Constructor to ensure that BotService is started.
+     * @see org.insightlab.botMother.service.BotService
+     */
+    public Bot(){
+        if(!BotService.isStarted())
+            throw new Error("Bot Service must be started before any bot instantiation");
+    }
 
     /**
      * Add a command to be executed by the bot.

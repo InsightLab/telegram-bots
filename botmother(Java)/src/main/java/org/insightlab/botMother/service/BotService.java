@@ -52,6 +52,10 @@ public class BotService {
 		bots = new TelegramBotsApi();
 	}
 
+	public static boolean isStarted(){
+	    return bots != null;
+    }
+
     /**
      * Adds a Bot to the API
      * @param bot Bot that will be added.

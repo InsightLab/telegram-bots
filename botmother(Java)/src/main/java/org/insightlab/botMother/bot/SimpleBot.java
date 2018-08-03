@@ -70,6 +70,7 @@ public class SimpleBot extends Bot{
      * @param username Bot's username.
      */
 	public SimpleBot(String token, String username){
+	    super();
 		this.token = token;
 		this.username = username;
 		
