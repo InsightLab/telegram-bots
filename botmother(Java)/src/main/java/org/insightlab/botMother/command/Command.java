@@ -41,12 +41,12 @@ public interface Command {
      * @param update update that triggered the command.
      * @param bot Bot object that received the update.
      */
-	public void run(Update update, Bot bot);
+	void run(Update update, Bot bot);
 
     /**
      * Check if the update triggers the command
      * @param update updated that will be tested.
      * @return true if this command should process this update. False otherwise.
      */
-	public boolean match(Update update);
+	boolean match(Update update);
 }
