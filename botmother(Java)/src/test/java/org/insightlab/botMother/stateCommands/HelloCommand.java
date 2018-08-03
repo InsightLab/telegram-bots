@@ -8,7 +8,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class HelloCommand extends SimpleStateCommand {
 	
 	public HelloCommand(){
-		this.setCommand("hi");
+		super("hi");
 	}
 	
 	@Override

@@ -41,6 +41,9 @@ public abstract class SimpleCommand implements Command {
     protected String command;
 
     public SimpleCommand(String command){
+        if(command.length()==0 || command.equals("/"))
+            throw new Error("Command text can't be empty");
+
         this.setCommand(command);
     }
 
@@ -49,6 +52,9 @@ public abstract class SimpleCommand implements Command {
      * @param command command that will be set.
      */
 	public void setCommand(String command){
+        if(command.length()==0 || command.equals("/"))
+            throw new Error("Command text can't be empty");
+
 		if(command.startsWith("/"))
 			this.command = command;
 		else

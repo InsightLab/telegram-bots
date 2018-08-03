@@ -8,7 +8,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class FallbackCommand extends SimpleStateCommand {
 	
 	public FallbackCommand(){
-		this.setCommand("cancel");
+		super("cancel");
 	}
 	
 	@Override
