@@ -8,7 +8,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class PingCommand extends SimpleCommand {
 	
 	public PingCommand(){
-		this.setCommand("ping");
+		super("ping");
 	}
 	
 	@Override
