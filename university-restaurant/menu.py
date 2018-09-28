@@ -29,26 +29,23 @@ def getMenu():
 
     html = bs(site,"html.parser")
 
-    table = html.find_all("tbody")[0].find_all("tr")
+    tables = html.find_all("table", {"class":"refeicao"})
 
     refeicao = ""
     opcao = ""
 
     menu = {}
 
-    if(len(table)==1):
+    if(len(tables)==1):
         return ""
 
     else:
-        for line in table:
-            lines = line.find_all("td")
-            
-            if(len(lines)==1):
-                refeicao = lines[0].find_all("h3")[0].get_text()
-                menu[refeicao] = {}
+        for table,refeicao in zip(tables,["Desjejum", "Almoço","Jantar"]):
+            menu[refeicao] = {}
+            for line in table.find_all("tr"):
+                lines = line.find_all("td")
 
-            else:
-                opcao = lines[0].find_all("span")[0].get_text()
+                opcao = lines[0].get_text()
 
                 pratos = [prato.get_text() for prato in lines[1].find_all("span") if '(' not in prato.get_text()]
                 menu[refeicao][opcao] = pratos
@@ -58,7 +55,7 @@ def getMenu():
         text = "\n".join(getMealText(menu,meal) for meal in ["Desjejum","Almoço","Jantar"])
         return text
 
-def sendMenu(menu=getMenu(),chat=-156030146):
+def sendMenu(menu,chat):
     menu = "<b>Cardápio de hoje: "+dt.today().strftime("%d-%m-%Y")+"\n\n</b>"+menu
     bot.send(menu,chat_id=chat)
 
