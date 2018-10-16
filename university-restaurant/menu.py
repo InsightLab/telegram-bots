@@ -47,7 +47,7 @@ def getMenu():
 
                 opcao = lines[0].get_text()
 
-                pratos = [prato.get_text() for prato in lines[1].find_all("span") if '(' not in prato.get_text()]
+                pratos = [prato.get_text() for prato in lines[1].find_all("span")]
                 menu[refeicao][opcao] = pratos
 
         #pprint(menu)
